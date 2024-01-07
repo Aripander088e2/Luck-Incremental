@@ -9,8 +9,8 @@ const UPGRADES = {
         ctn: [
             {
                 desc: () => `Increase luck by ${formatMult(upgradeEffect('pp',0)[0])} every level.`,
-                cost: i => Decimal.pow(2,i),
-                bulk: i => i.log(2),
+                cost: i => Decimal.pow(2.01,i),
+                bulk: i => i.log(2.01),
 
                 effect(i) {
                     i = i.mul(upgradeEffect('pp',3))
@@ -36,8 +36,8 @@ const UPGRADES = {
                 effDesc: x => "-"+format(x),
             },{
                 desc: () => `Increase PU1's base by +0.5 every level.`,
-                cost: i => Decimal.pow(10,i).mul(1e3),
-                bulk: i => i.div(1e3).log(10),
+                cost: i => Decimal.pow(8,i).mul(1e3),
+                bulk: i => i.div(1e3).log(8),
 
                 effect(i) {
                     i = i.mul(upgradeEffect('pp',3))
