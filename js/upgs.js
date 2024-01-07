@@ -9,8 +9,8 @@ const UPGRADES = {
         ctn: [
             {
                 desc: () => `Increase luck by ${formatMult(upgradeEffect('pp',0)[0])} every level.`,
-                cost: i => Decimal.pow(3,i),
-                bulk: i => i.log(3),
+                cost: i => Decimal.pow(2,i),
+                bulk: i => i.log(2),
 
                 effect(i) {
                     i = i.mul(upgradeEffect('pp',3))
@@ -23,8 +23,8 @@ const UPGRADES = {
                 effDesc: x => formatMult(x[1]),
             },{
                 desc: () => `Decrease auto-roll interval.`,
-                cost: i => Decimal.pow(5,i).mul(10),
-                bulk: i => i.div(10).log(5),
+                cost: i => Decimal.pow(3,i).mul(5),
+                bulk: i => i.div(5).log(3),
 
                 effect(i) {
                     i = i.mul(upgradeEffect('pp',3))
@@ -63,8 +63,8 @@ const UPGRADES = {
                 unl: () => player.mastery_tier>0,
 
                 desc: () => `Double mastery essence gain.`,
-                cost: i => Decimal.pow(1e5,i.pow(2)).mul(1e100),
-                bulk: i => i.div(1e100).log(1e5).root(2),
+                cost: i => Decimal.pow(1e3,i.pow(1.5)).mul(1e80),
+                bulk: i => i.div(1e100).log(1e3).root(1.5),
 
                 effect(i) {
                     let x = Decimal.pow(2,i)
@@ -84,8 +84,8 @@ const UPGRADES = {
         ctn: [
             {
                 desc: () => `Increase luck by ${formatMult(upgradeEffect('tp',0)[0])} every level.`,
-                cost: i => Decimal.pow(3,i),
-                bulk: i => i.log(3),
+                cost: i => Decimal.pow(2,i),
+                bulk: i => i.log(2),
 
                 effect(i) {
                     i = i.mul(upgradeEffect('tp',5))
@@ -99,8 +99,8 @@ const UPGRADES = {
                 effDesc: x => formatMult(x[1]),
             },{
                 desc: () => `Double prestige points gain.`,
-                cost: i => Decimal.pow(3,i.scale(100,2,0)),
-                bulk: i => i.log(3).scale(100,2,0,true),
+                cost: i => Decimal.pow(2,i.scale(80,2,0)),
+                bulk: i => i.log(2).scale(80,2,0,true),
 
                 effect(i) {
                     i = i.mul(upgradeEffect('tp',5))
@@ -112,8 +112,8 @@ const UPGRADES = {
                 effDesc: x => formatMult(x),
             },{
                 desc: () => `Improve randomizer better.`,
-                cost: i => Decimal.pow(10,i.pow(2)).mul(1e2),
-                bulk: i => i.div(1e2).log(10).root(2),
+                cost: i => Decimal.pow(10,i.pow(1.2)).mul(1e2),
+                bulk: i => i.div(1e2).log(10).root(1.2),
 
                 effect(i) {
                     i = i.mul(upgradeEffect('tp',5))
@@ -165,11 +165,11 @@ const UPGRADES = {
         ctn: [
             {
                 desc: () => `Increase luck by ${formatMult(upgradeEffect('rp',0)[0])} every level.`,
-                cost: i => Decimal.pow(3,i.pow(1.25)),
-                bulk: i => i.log(3).root(1.25),
+                cost: i => Decimal.pow(2,i.pow(1.1)),
+                bulk: i => i.log(2).root(1.1),
 
                 effect(i) {
-                    let b = E(200)
+                    let b = E(2000)
                     let x = b.pow(i)
 
                     return [b,x]
@@ -181,7 +181,7 @@ const UPGRADES = {
                 bulk: i => i.log(3).root(1.25),
 
                 effect(i) {
-                    let x = Decimal.pow(10,i)
+                    let x = Decimal.pow(50,i)
 
                     return x
                 },
@@ -192,7 +192,7 @@ const UPGRADES = {
                 bulk: i => i.log(3).root(1.25),
 
                 effect(i) {
-                    let x = Decimal.pow(2,i)
+                    let x = Decimal.pow(5,i)
 
                     return x
                 },
